@@ -38,12 +38,7 @@ The following table summarizes the datasets and models
 | Shakespeare |     Next character prediction        |      Stacked LSTM    |
 
 See the `README.md` files of respective dataset, i.e., `data/$DATASET`,
-for instructions on generating data
-
-----
-## Prepare Dataset: 
-
-* To generate *non-iid* **Mnist** Dataset for 100 clients using 50% of the total available training samples (s_frac), and 80% training samples (tr_frac):
+for instructions on generating data. To generate *non-iid* **Mnist** Dataset for 100 clients using 50% of the total available training samples (s_frac), and 80% training samples (tr_frac):
 
 ```
 python generate_data.py \
