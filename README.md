@@ -44,7 +44,7 @@ for instructions on generating data
 ----
 ## Prepare Dataset: 
 
-* To generate *non-iid* **Mnist** Dataset following the Dirichlet distribution D(&alpha;=0.1) for 20 clients, using 50% of the total available training samples:
+* To generate *non-iid* **Mnist** Dataset for 100 clients using 50% of the total available training samples (s_frac), and 80% training samples (tr_frac):
 
 ```
 python generate_data.py \
@@ -52,7 +52,7 @@ python generate_data.py \
     --split dirichlet_non_iid_split\
     --n_components 3 \
     --alpha 0.5 \
-    --s_frac 1.0 \
+    --s_frac 0.5 \
     --tr_frac 0.8 \
     --unseen_tasks_frac 0.2 \
     --seed 12345  
@@ -60,9 +60,9 @@ python generate_data.py \
 
 ```
 python generate_data.py \
-    --n_users 30 \
+    --n_users 100 \
     --split split_iid\
-    --s_frac 0.02 \
+    --s_frac 0.5 \
     --tr_frac 0.8 \
     --seed 12345 
 ```
@@ -71,7 +71,7 @@ python generate_data.py \
 python generate_data.py \
     --n_users 100 \
     --split pathological_non_iid_split\
-    --s_frac 1.0 \
+    --s_frac 0.5 \
     --tr_frac 0.8 \
     --n_shards 2 \
     --seed 12345 
@@ -79,10 +79,10 @@ python generate_data.py \
 
 ```
 python generate_data.py \
-    --n_users 20 \
+    --n_users 100 \
     --split label_swapped_non_iid_split \
     --n_components 4 \
-    --s_frac 1.0 \
+    --s_frac 0.5 \
     --tr_frac 0.8 \
     --seed 12345  
 ```
