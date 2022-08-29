@@ -36,7 +36,6 @@ The following table summarizes the datasets and models
 | CIFAR10   |     Image classification        |      MobileNet-v2 |
 | CIFAR100    |     Image classification         |      MobileNet-v2  |
 | Shakespeare |     Next character prediction        |      Stacked LSTM    |
-| Synthetic dataset| Binary classification | Linear model | 
 
 See the `README.md` files of respective dataset, i.e., `data/$DATASET`,
 for instructions on generating data
