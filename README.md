@@ -19,15 +19,13 @@ It contains implementation of the following algorithms:
 We provide five federated benchmark datasets spanning a wide range
 of machine learning tasks: image classification (CIFAR10 and CIFAR100),
 handwritten character recognition (EMNIST and FEMNIST), and language
-modelling (Shakespeare), in addition to a synthetic dataset
+modelling (Shakespeare).
+
+For non-iid setting, We provide 3 non-iid settings: label_swapped_non_iid_split, dirichlet_non_iid_split, pathological_non_iid_split, in addition to a iid_split.
 
 Shakespeare dataset (resp. FEMNIST) was naturally partitioned by assigning
 all lines from the same characters (resp. all images from the same writer)
-to the same client.  We created federated versions of CIFAR10 and EMNIST by
-distributing samples with the same label across the clients according to a 
-symmetric Dirichlet distribution with parameter 0.4. For CIFAR100,
-we exploited the availability of "coarse" and "fine" labels, using a two-stage
-Pachinko allocation method  to assign 600 sample to each of the 100 clients.
+to the same client.  
 
 The following table summarizes the datasets and models
 
@@ -44,21 +42,15 @@ See the `README.md` files of respective dataset, i.e., `data/$DATASET`,
 for instructions on generating data
 
 ## Prepare Dataset: 
-We provide 3 non-iid settings
+
 * To generate *non-iid* **Mnist** Dataset following the Dirichlet distribution D(&alpha;=0.1) for 20 clients, using 50% of the total available training samples:
 
 <pre><code>cd FedDSMIC/data/Mnist
 python generate_data.py  --n_class 10 --sampling_ratio 0.5 --alpha 1.0 --n_user 10
 ``
-### This will generate a dataset located at FedDSMIC/data/Mnist/u20c10-alpha0.1-ratio0.5/
+### This will generate a dataset located at FedDSMIC/data/Mnist/u100-alpha0.05-ratio1.0/
 </code></pre>
     
-
-- Similarly, to generate *non-iid* **EMnist** Dataset, using 10% of the total available training samples:
-<pre><code>cd FedGen/data/EMnist
-python generate_niid_dirichlet.py --sampling_ratio 0.1 --alpha 0.1 --n_user 20 
-### This will generate a dataset located at FedGen/data/EMnist/u20-letters-alpha0.1-ratio0.1/
-</code></pre> 
 
 ## Run Experiments: 
 
