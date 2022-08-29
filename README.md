@@ -48,7 +48,7 @@ for instructions on generating data
 <pre><code>cd FedDSMIC/data/Mnist
 python generate_data.py  --n_class 10 --sampling_ratio 0.5 --alpha 1.0 --n_user 10
 ``
-### This will generate a dataset located at FedDSMIC/data/Mnist/u100-alpha0.05-ratio1.0/
+### This will generate a dataset located at FedDSMIC/data/Mnist/u100-alpha0.5-ratio1.0/
 </code></pre>
     
 
@@ -58,4 +58,16 @@ There is a main file "main.py" which allows running all experiments.
 
 #### Run experiments on the *Mnist* Dataset:
 ```
+nohup python -u main.py --dataset Mnist-alpha0.5-ratio1.0-u100 --algorithm FedAvg \
+  --batch_size 32 --num_users 8 --learning_rate 0.01 --num_glob_iters 500 --E 1 --times 1 --gpu 1 > ./acc_loss_record/mnist/E=1/r=0.1/FedAvg.out 2>&1 &
+```
+We provide example scripts to run paper experiments under experiments/ directory.
 
+----
+
+### Plot
+For the input attribute **algorithms**, list the name of algorithms and separate them by comma, e.g. `--algorithms FedAvg,FedGen,FedProx`
+```
+  python main_plot.py --dataset Mnist-alpha0.5-ratio1.0-u100 --algorithms FedDSMIC,FedAvg,FedProx,PerFedavg,FedSEM,IFCA\
+  --batch_size 32 --E 1 --num_users 80 --num_glob_iters 200 --plot_legend 1 --test_acc True 
+```
