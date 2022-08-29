@@ -41,6 +41,7 @@ The following table summarizes the datasets and models
 See the `README.md` files of respective dataset, i.e., `data/$DATASET`,
 for instructions on generating data
 
+----
 ## Prepare Dataset: 
 
 * To generate *non-iid* **Mnist** Dataset following the Dirichlet distribution D(&alpha;=0.1) for 20 clients, using 50% of the total available training samples:
@@ -51,7 +52,7 @@ python generate_data.py  --n_class 10 --sampling_ratio 0.5 --alpha 1.0 --n_user 
 ### This will generate a dataset located at FedDSMIC/data/Mnist/u100-alpha0.5-ratio1.0/
 </code></pre>
     
-
+----
 ## Run Experiments: 
 
 There is a main file "main.py" which allows running all experiments.
